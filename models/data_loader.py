@@ -192,7 +192,7 @@ class SQuADDataLoader(BaseDataLoader):
         index = str_origin_context.index(str_tokenized_tokens)
         value_start = token_id[index]
         token_to_orig_map = {}
-        # 处理这样的边界情况： Building's gold   《==》   's', 'gold', 'dome'
+        # Handling edge cases like this： Building's gold   《==》   's', 'gold', 'dome'
         token = tokenizer(origin_context_tokens[value_start])
         for i in range(len(token), -1, -1):
             s1 = "".join(token[-i:])
